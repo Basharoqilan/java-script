@@ -32,6 +32,7 @@ while (i <= 100) {
   console.log(sum);
   i++;
 }
+``;
 // 6- Write a program that calculates the factorial of a number entered by the user using a for loop.
 let num = 1;
 for (let i = prompt("inter the number"); i > 0; i--) {
@@ -42,18 +43,19 @@ console.log(num);
 let x = prompt("inter the number");
 let y = 0;
 let z = 1;
-while (z <= x) {
+var j = 1;
+while (j <= x) {
   let sum = y + z;
   y = z;
   z = sum;
   console.log(sum);
+  j++;
 }
 // 8- Write a program that prints the reverse of the following numbers:
 //5 , 10 , 15 , 20
 // using a while loop.
-let x = prompt("inter the number between 0 and 3");
-let myarray = [5, 10, 15, 20];
-while (x >= 0 && x <= 3) {
-  console.log(myarray[x]);
-  x--;
+let x = 20;
+while (x >= 5) {
+  console.log(x);
+  x = x - 5;
 }
