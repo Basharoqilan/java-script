@@ -19,8 +19,10 @@ var fruits=["Tomato","Banana","Watermelon"]
 
 */
 var fruits = ["Tomato", "Banana", "Watermelon"];
-console.log(fruits[0]);
-console.log(fruits[1]);
+let x = fruits.indexOf("Banana");
+let y = fruits.indexOf("Tomato");
+console.log(x);
+console.log(y);
 
 /*
 3
@@ -64,8 +66,10 @@ Ex: lastOfArray(["t","u","g","x"]) => "x"
 function lastOfArray() {
   let lastOfArray1 = [1, 4, 5];
   let lastOfArray2 = ["t", "u", "g", "x"];
-  console.log(lastOfArray1[2]);
-  console.log(lastOfArray2[3]);
+  let x = lastOfArray1.length;
+  let y = lastOfArray2.length;
+  console.log(lastOfArray1[x - 1]);
+  console.log(lastOfArray2[y - 1]);
 }
 lastOfArray();
 
@@ -142,17 +146,21 @@ var nums= [1,2,3,8,9]
 nums => [5,-22,3.5,44,98,44]
 */
 
-var animals2 = ["zebra", "elephant"];
 var animals = ["cat", "ele", "bird"];
-for (i = 0; i < animals2.length; i++) {
-  var X = animals.indexOf(animals2[i]);
-  console.log(X);
-  if (X === -1) {
-    let Y = animals2[i];
-    animals.push(Y);
-  }
-}
+animals[0] = "zebra";
+animals[1] = "elephant";
+animals.pop();
 console.log(animals);
+
+var nums = [1, 2, 3, 8, 9];
+nums[0] = 5;
+nums[1] = -22;
+nums[2] = 3.5;
+nums[3] = 44;
+nums[4] = 98;
+nums[5] = 44;
+console.log(nums);
+
 /*
 10
 Create a function called indexOfArray
@@ -166,13 +174,14 @@ Ex: indexOfArray(nums,4) => 9
 
 **try more cases by your self
 */
-function indexOfArray() {
-  var nums = [1, 2, 3, 8, 9];
-  let Y = nums[3];
-  console.log(Y);
+function indexOfArray(num, index) {
+  var y = num[index];
+  console.log(y);
 }
-indexOfArray();
-
+var nums = [1, 2, 3, 8, 9];
+indexOfArray(nums, 3);
+indexOfArray(nums, 1);
+indexOfArray(nums, 4);
 /*
 11
 Create a function called arrayExceptLast
@@ -302,10 +311,13 @@ function removeFromArray() {
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] === 8) {
       nums.splice(i, 1);
+      i--;
     }
   }
   console.log(nums);
 }
+removeFromArray();
+
 removeFromArray();
 
 function removeFromArray() {
@@ -315,6 +327,7 @@ function removeFromArray() {
   while (Y > 0) {
     if (nums[i] === 8) {
       nums.splice(i, 1);
+      i--;
     }
     Y--;
     i++;
@@ -341,6 +354,7 @@ function oddArray() {
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] % 2 === 0) {
       nums.splice(i, 1);
+      i--;
     }
   }
   console.log(nums);
@@ -354,6 +368,7 @@ function oddArray() {
   while (Y > 0) {
     if (nums[i] % 2 === 0) {
       nums.splice(i, 1);
+      i--;
     }
     Y--;
     i++;
@@ -457,25 +472,24 @@ Ex: repeatChar(string,"z") => 0
 ** solve it one time using for loop and another using while loop
 **try more cases by your self
 */
-function repeatChar() {
+function repeatChar(str, cahr) {
   let x = 0;
-  var string = "alex mercer madrasa rashed2 emad hala";
   for (let i = 0; i < string.length; i++) {
-    if (string[i] === "a") {
+    if (str[i] === cahr) {
       x++;
     }
   }
   console.log(x);
 }
-repeatChar();
+var string = "alex mercer madrasa rashed2 emad hala";
+repeatChar(string, "a");
 
-function repeatChar() {
+function repeatChar(str, cahr) {
   let x = 0;
-  var string = "alex mercer madrasa rashed2 emad hala";
   let y = string.length;
   let i = 0;
   while (y > 0) {
-    if (string[i] === "a") {
+    if (str[i] === cahr) {
       x++;
     }
     i++;
@@ -483,7 +497,8 @@ function repeatChar() {
   }
   console.log(x);
 }
-repeatChar();
+var string = "alex mercer madrasa rashed2 emad hala";
+repeatChar(string, "a");
 
 /*
 20
