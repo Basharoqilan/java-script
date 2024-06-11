@@ -1,38 +1,15 @@
-function validateLogin() {
-  let emailInput = document.querySelector("#email");
-  let passwordInput = document.querySelector("#password");
+function loginClick(event) {
+  event.preventDefault();
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password1").value;
 
-  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  var storedemail = localStorage.getItem("email");
+  var storedPassword = localStorage.getItem("password1");
 
-  if (!emailPattern.test(emailInput.value)) {
-    document.querySelector("#alert1").style.display = "block";
-    return false;
-  } else {
-    document.querySelector("#alert1").style.display = "none";
-  }
-
-  if (passwordInput.value.length < 8) {
-    document.querySelector("#alert2").style.display = "block";
-    return false;
-  } else {
-    document.querySelector("#alert2").style.display = "none";
-  }
-
-  let storedEmail = sessionStorage.getItem("email");
-  let storedPassword = sessionStorage.getItem("password");
-
-  if (
-    emailInput.value === storedEmail &&
-    passwordInput.value === storedPassword
-  ) {
-    alert("valid");
+  if (storedemail === email && password === storedPassword) {
+    alert("You have successfully logged in!");
     window.location.href = "text2.html";
   } else {
-    alert("not valid");
+    alert("Incorrect username or password.");
   }
 }
-
-document.querySelector("#login").addEventListener("click", function (event) {
-  event.preventDefault();
-  validateLogin();
-});
