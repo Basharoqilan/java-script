@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task2</title>
+    <style>
+      body {
+        color: blue;
+        background-color: #f0f0f0;
+        transition: color 0.5s, background-color 0.5s;
+      }
+
+      .dark-mode {
+        color: white;
+        background-color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Mode Selector</h1>
+    <label for="modeSelect">Select Mode:</label>
+    <select id="modeSelect" onchange="changeMode(this.value)">
+      <option value="light">Light Mode</option>
+      <option value="dark">Dark Mode</option>
+    </select>
+
+    <script>
+      function changeMode(mode) {
+        if (mode === "dark") {
+          document.body.className = "dark-mode";
+        } else {
+          document.body.className = "";
+        }
+        sessionStorage.setItem("mode", mode);
+      }
+      if (sessionStorage.getItem("mode") === "dark") {
+        document.body.className = "dark-mode";
+      }
+    </script>
+  </body>
+</html>
